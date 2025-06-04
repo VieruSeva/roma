@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test API</title>
+</head>
+<body>
+    <h1>Test API News Ticker</h1>
+    <button onclick="testAPI()">Test API Call</button>
+    <div id="result"></div>
+
+    <script>
+        async function testAPI() {
+            const resultDiv = document.getElementById('result');
+            try {
+                const backendUrl = 'https://3a92c945-d893-424c-9a6a-caf3268c8d80.preview.emergentagent.com';
+                const url = `${backendUrl}/api/news-ticker`;
+                console.log('Fetching from:', url);
+                
+                const response = await fetch(url);
+                console.log('Response status:', response.status);
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('Data received:', data);
+                    resultDiv.innerHTML = '<h2>Success!</h2><pre>' + JSON.stringify(data.items, null, 2) + '</pre>';
+                } else {
+                    resultDiv.innerHTML = '<h2>Error: ' + response.status + '</h2>';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                resultDiv.innerHTML = '<h2>Error: ' + error.message + '</h2>';
+            }
+        }
+
+        // Auto-test on load
+        window.onload = testAPI;
+    </script>
+</body>
+</html>
