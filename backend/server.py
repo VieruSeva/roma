@@ -647,6 +647,15 @@ async def get_news_ticker():
         # Latest news data
         latest_news = [
             {
+                "id": 8,
+                "title": "Ministerul Agriculturii vine cu o reacție în urma demersului scris de ANIPM",
+                "date": "5 aprilie 2025",
+                "url": "#",
+                "type": "news",
+                "hasDocuments": True,
+                "category": "official"
+            },
+            {
                 "id": 7,
                 "title": "Schema de ajutor de stat regional pentru investiții",
                 "date": "30 martie 2025",
