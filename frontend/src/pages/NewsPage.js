@@ -24,6 +24,11 @@ const NewsPage = () => {
   const [expandedEventId, setExpandedEventId] = useState(null);
   const [newsImages, setNewsImages] = useState({});
   const [loadingImages, setLoadingImages] = useState(true);
+  const [previewModal, setPreviewModal] = useState({
+    isOpen: false,
+    url: '',
+    title: ''
+  });
   const location = useLocation();
   
   useEffect(() => {
