@@ -155,14 +155,6 @@ const NewsPage = () => {
     }
   };
 
-      link.remove();
-      window.URL.revokeObjectURL(downloadUrl);
-    } catch (error) {
-      console.error('Error downloading file:', error);
-      alert('Eroare la descărcarea fișierului. Încercați din nou.');
-    }
-  };
-
   // SECTION 1: EVENTS DATA
   const events = [
     {
@@ -258,44 +250,6 @@ const NewsPage = () => {
 
   // SECTION 3: LATEST NEWS DATA with generic descriptions to avoid copyright
   const latestNewsData = [
-    {
-      id: 8,
-      title: "Ministerul Agriculturii vine cu o reacție în urma demersului scris de ANIPM",
-      excerpt: "Ministerul Agriculturii și Industriei Alimentare a transmis un răspuns oficial în urma demersului înaintat de Asociația Națională a Industriei de Panificație și Morărit din Moldova. Documentele oficiale sunt disponibile pentru consultare.",
-      date: "5 aprilie 2025",
-      author: "ANIPM",
-      category: "oficial",
-      image: ministerImage,
-      readTime: "8 min",
-      url: "#",
-      hasDocuments: true,
-      documents: [
-        {
-          id: 1,
-          title: "Răspuns oficial - Partea 1",
-          filename: "minist1.pdf",
-          url: `${process.env.REACT_APP_BACKEND_URL || ''}/api/download/minist1.pdf`
-        },
-        {
-          id: 2,
-          title: "Răspuns oficial - Partea 2", 
-          filename: "minist2.pdf",
-          url: `${process.env.REACT_APP_BACKEND_URL || ''}/api/download/minist2.pdf`
-        },
-        {
-          id: 3,
-          title: "Anexă - Document de poziție",
-          filename: "minist3.docx",
-          url: `${process.env.REACT_APP_BACKEND_URL || ''}/api/download/minist3.docx`
-        },
-        {
-          id: 4,
-          title: "Răspuns oficial - Partea 3",
-          filename: "minist4.pdf", 
-          url: `${process.env.REACT_APP_BACKEND_URL || ''}/api/download/minist4.pdf`
-        }
-      ]
-    },
     {
       id: 8,
       title: "Ministerul Agriculturii vine cu o reacție în urma demersului scris de ANIPM",
@@ -902,60 +856,6 @@ const NewsPage = () => {
         </Link>
       </div>
 
-      {/* Document Preview Modal */}
-      {previewModal.isOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
-          onClick={closePreview}
-        >
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
-            className="bg-white rounded-lg shadow-2xl w-full max-w-6xl h-full max-h-[90vh] flex flex-col"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Modal Header */}
-            <div className="flex items-center justify-between p-6 border-b border-gray-200 bg-gradient-to-r from-blue-50 to-indigo-50">
-              <div>
-                <h3 className="text-xl font-bold text-gray-800 mb-1">{previewModal.title}</h3>
-                <p className="text-sm text-gray-600">Previzualizare document oficial</p>
-              </div>
-              <div className="flex items-center space-x-3">
-                <button
-                  onClick={() => downloadFile(previewModal.url, previewModal.title)}
-                  className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 flex items-center shadow-md hover:shadow-lg"
-                >
-                  <span className="mr-2">⬇️</span>
-                  Descarcă
-                </button>
-                <button
-                  onClick={closePreview}
-                  className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200 flex items-center"
-                >
-                  <span className="mr-2">✕</span>
-                  Închide
-                </button>
-              </div>
-            </div>
-            
-            {/* Document Viewer */}
-            <div className="flex-1 p-6 bg-gray-50">
-              <div className="h-full bg-white rounded-lg shadow-inner overflow-hidden">
-                <iframe
-                  src={previewModal.url}
-                  className="w-full h-full border-0"
-                  title={previewModal.title}
-                  style={{ minHeight: '600px' }}
-                />
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
       {/* Document Preview Modal */}
       {previewModal.isOpen && (
         <motion.div
