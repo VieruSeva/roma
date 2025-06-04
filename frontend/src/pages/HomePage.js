@@ -6,9 +6,8 @@ import axios from "axios";
 import { useLocation } from 'react-router-dom';
 import { Hero } from '../components/Hero';
 import { About } from '../components/About';
-import { News } from '../components/News';
+import { MainPageNews } from '../components/MainPageNews';
 import { Contact } from '../components/Contact';
-import { LatestNewsSection } from '../components/LatestNewsSection';
 import { FaUsers, FaHistory, FaLandmark, FaStar } from 'react-icons/fa';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
