@@ -90,6 +90,15 @@ export const MainPageNews = () => {
     setExpandedItemId(expandedItemId === id ? null : id);
   };
 
+  // Handle document preview
+  const openDocumentPreview = (documentUrl, documentName) => {
+    setDocumentPreview({ url: documentUrl, name: documentName });
+  };
+
+  const closeDocumentPreview = () => {
+    setDocumentPreview(null);
+  };
+
   // Animation variants
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
