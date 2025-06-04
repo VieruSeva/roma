@@ -16,7 +16,7 @@ import antreprenorExpo from "../images/ANTREPRENOR EXPO.png";
 import ebaImage from "../images/eba.jpg";
 import ipackImage from "../images/ipack.jpg";
 import eta2025Image from "../images/eta2025.jpg";
-import energy2025Video from "../images/energy2025.mp4";
+import ministerImage from "../images/minister.jpg";
 
 const NewsPage = () => {
   const [activeCategory, setActiveCategory] = useState('toate');
