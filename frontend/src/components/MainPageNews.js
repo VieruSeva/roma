@@ -263,7 +263,7 @@ export const MainPageNews = () => {
                     
                     <div className="grid grid-cols-1 gap-2">
                       <button 
-                        onClick={() => window.open(`${BACKEND_URL}/api/download/minist1.pdf`, '_self')}
+                        onClick={() => openDocumentPreview(`${BACKEND_URL}/api/download/minist1.pdf`, 'Răspuns oficial - Partea 1')}
                         className="flex items-center p-2 bg-blue-50 rounded hover:bg-blue-100 transition-colors duration-200 text-sm cursor-pointer"
                       >
                         <FaFileAlt className="text-blue-500 mr-2 text-xs" />
@@ -272,7 +272,7 @@ export const MainPageNews = () => {
                       </button>
 
                       <button 
-                        onClick={() => window.open(`${BACKEND_URL}/api/download/minist2.pdf`, '_self')}
+                        onClick={() => openDocumentPreview(`${BACKEND_URL}/api/download/minist2.pdf`, 'Răspuns oficial - Partea 2')}
                         className="flex items-center p-2 bg-blue-50 rounded hover:bg-blue-100 transition-colors duration-200 text-sm cursor-pointer"
                       >
                         <FaFileAlt className="text-blue-500 mr-2 text-xs" />
@@ -281,7 +281,7 @@ export const MainPageNews = () => {
                       </button>
 
                       <button 
-                        onClick={() => window.open(`${BACKEND_URL}/api/download/minist3.docx`, '_self')}
+                        onClick={() => openDocumentPreview(`${BACKEND_URL}/api/download/minist3.docx`, 'Anexă - Document')}
                         className="flex items-center p-2 bg-green-50 rounded hover:bg-green-100 transition-colors duration-200 text-sm cursor-pointer"
                       >
                         <FaFileAlt className="text-green-500 mr-2 text-xs" />
@@ -290,7 +290,7 @@ export const MainPageNews = () => {
                       </button>
 
                       <button 
-                        onClick={() => window.open(`${BACKEND_URL}/api/download/minist4.pdf`, '_self')}
+                        onClick={() => openDocumentPreview(`${BACKEND_URL}/api/download/minist4.pdf`, 'Răspuns oficial - Partea 3')}
                         className="flex items-center p-2 bg-blue-50 rounded hover:bg-blue-100 transition-colors duration-200 text-sm cursor-pointer"
                       >
                         <FaFileAlt className="text-blue-500 mr-2 text-xs" />
