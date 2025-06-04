@@ -928,6 +928,61 @@ const NewsPage = () => {
           Înapoi la pagina principală
         </Link>
       </div>
+
+      {/* Document Preview Modal */}
+      {previewModal.isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
+          onClick={closePreview}
+        >
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            className="bg-white rounded-lg shadow-2xl w-full max-w-6xl h-full max-h-[90vh] flex flex-col"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="flex items-center justify-between p-6 border-b border-gray-200 bg-gradient-to-r from-blue-50 to-indigo-50">
+              <div>
+                <h3 className="text-xl font-bold text-gray-800 mb-1">{previewModal.title}</h3>
+                <p className="text-sm text-gray-600">Previzualizare document oficial</p>
+              </div>
+              <div className="flex items-center space-x-3">
+                <button
+                  onClick={() => downloadFile(previewModal.url, previewModal.title)}
+                  className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 flex items-center shadow-md hover:shadow-lg"
+                >
+                  <span className="mr-2">⬇️</span>
+                  Descarcă
+                </button>
+                <button
+                  onClick={closePreview}
+                  className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200 flex items-center"
+                >
+                  <span className="mr-2">✕</span>
+                  Închide
+                </button>
+              </div>
+            </div>
+            
+            {/* Document Viewer */}
+            <div className="flex-1 p-6 bg-gray-50">
+              <div className="h-full bg-white rounded-lg shadow-inner overflow-hidden">
+                <iframe
+                  src={previewModal.url}
+                  className="w-full h-full border-0"
+                  title={previewModal.title}
+                  style={{ minHeight: '600px' }}
+                />
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
     </motion.div>
   );
 };
