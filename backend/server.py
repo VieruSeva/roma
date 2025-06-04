@@ -595,6 +595,51 @@ async def download_oferta_carne():
         )
     raise HTTPException(status_code=404, detail="File not found")
 
+# Minister Documents Endpoints
+@api_router.get("/download/minist1.pdf")
+async def download_minist1():
+    """Open Minist1 PDF in browser"""
+    file_path = Path("/app/frontend/src/documents/minist1.pdf")
+    if file_path.exists():
+        return FileResponse(
+            path=file_path,
+            media_type='application/pdf'
+        )
+    raise HTTPException(status_code=404, detail="File not found")
+
+@api_router.get("/download/minist2.pdf")
+async def download_minist2():
+    """Open Minist2 PDF in browser"""
+    file_path = Path("/app/frontend/src/documents/minist2.pdf")
+    if file_path.exists():
+        return FileResponse(
+            path=file_path,
+            media_type='application/pdf'
+        )
+    raise HTTPException(status_code=404, detail="File not found")
+
+@api_router.get("/download/minist3.docx")
+async def download_minist3():
+    """Open Minist3 DOCX in browser"""
+    file_path = Path("/app/frontend/src/documents/minist3.docx")
+    if file_path.exists():
+        return FileResponse(
+            path=file_path,
+            media_type='application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+        )
+    raise HTTPException(status_code=404, detail="File not found")
+
+@api_router.get("/download/minist4.pdf")
+async def download_minist4():
+    """Open Minist4 PDF in browser"""
+    file_path = Path("/app/frontend/src/documents/minist4.pdf")
+    if file_path.exists():
+        return FileResponse(
+            path=file_path,
+            media_type='application/pdf'
+        )
+    raise HTTPException(status_code=404, detail="File not found")
+
 @api_router.get("/news-ticker")
 async def get_news_ticker():
     """Get all news and events for the ticker"""
