@@ -8,7 +8,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 class IPACImageTester:
-    def __init__(self, base_url="https://3a92c945-d893-424c-9a6a-caf3268c8d80.preview.emergentagent.com"):
+    def __init__(self, base_url="https://7b55f144-6c42-48c8-86a9-86665a93d246.preview.emergentagent.com"):
         self.base_url = base_url
         self.tests_run = 0
         self.tests_passed = 0
