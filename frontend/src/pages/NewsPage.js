@@ -211,6 +211,44 @@ const NewsPage = () => {
   // SECTION 3: LATEST NEWS DATA with generic descriptions to avoid copyright
   const latestNewsData = [
     {
+      id: 8,
+      title: "Ministerul Agriculturii vine cu o reacție în urma demersului scris de ANIPM",
+      excerpt: "Ministerul Agriculturii și Industriei Alimentare a transmis un răspuns oficial în urma demersului înaintat de Asociația Națională a Industriei de Panificație și Morărit din Moldova. Documentele oficiale sunt disponibile pentru consultare.",
+      date: "5 aprilie 2025",
+      author: "ANIPM",
+      category: "oficial",
+      image: ministerImage,
+      readTime: "8 min",
+      url: "#",
+      hasDocuments: true,
+      documents: [
+        {
+          id: 1,
+          title: "Răspuns oficial - Partea 1",
+          filename: "minist1.pdf",
+          url: `${process.env.REACT_APP_BACKEND_URL || ''}/api/download/minist1.pdf`
+        },
+        {
+          id: 2,
+          title: "Răspuns oficial - Partea 2", 
+          filename: "minist2.pdf",
+          url: `${process.env.REACT_APP_BACKEND_URL || ''}/api/download/minist2.pdf`
+        },
+        {
+          id: 3,
+          title: "Anexă - Document de poziție",
+          filename: "minist3.docx",
+          url: `${process.env.REACT_APP_BACKEND_URL || ''}/api/download/minist3.docx`
+        },
+        {
+          id: 4,
+          title: "Răspuns oficial - Partea 3",
+          filename: "minist4.pdf", 
+          url: `${process.env.REACT_APP_BACKEND_URL || ''}/api/download/minist4.pdf`
+        }
+      ]
+    },
+    {
       id: 7,
       title: "Schema de ajutor de stat regional pentru investiții",
       excerpt: "Citește despre programul de ajutor de stat pentru investiții regionale pe site-ul oficial al MDED.",
