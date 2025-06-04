@@ -11,6 +11,7 @@ export const MainPageNews = () => {
   const [newsImages, setNewsImages] = useState({});
   const [loadingImages, setLoadingImages] = useState(true);
   const [loading, setLoading] = useState(true);
+  const [documentPreview, setDocumentPreview] = useState(null);
 
   useEffect(() => {
     const fetchNews = async () => {
