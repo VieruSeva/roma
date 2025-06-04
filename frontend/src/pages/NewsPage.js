@@ -793,47 +793,100 @@ const NewsPage = () => {
                     </div>
                   </a>
                 ) : (
-                  <div className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 opacity-75 h-full flex flex-col">
-                    {/* Internal content for items without external links */}
-                    <div className="h-56 bg-gradient-to-br from-gray-200 via-gray-300 to-gray-200 flex items-center justify-center">
-                      <div className="text-center">
-                        <FaImage className="text-gray-400 text-4xl mx-auto mb-2" />
-                        <div className="text-gray-500 text-sm font-medium">Conținut intern</div>
-                        <div className="text-gray-400 text-xs mt-1">În dezvoltare</div>
-                      </div>
+                  <div className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:border-primary-200 h-full flex flex-col">
+                    {/* Image Section for News with Documents */}
+                    <div className="relative h-56 overflow-hidden">
+                      {news.image ? (
+                        <>
+                          <img 
+                            src={news.image} 
+                            alt={news.title} 
+                            className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                          />
+                          {/* Official Document Badge */}
+                          <div className="absolute top-4 right-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-bold py-2 px-3 rounded-full shadow-lg border border-white/20">
+                            <div className="flex items-center space-x-1">
+                              <span>📄</span>
+                              <span>DOCUMENTE</span>
+                            </div>
+                          </div>
+                        </>
+                      ) : (
+                        <div className="h-full bg-gradient-to-br from-blue-100 via-indigo-100 to-blue-200 flex items-center justify-center">
+                          <div className="text-center">
+                            <FaImage className="text-blue-500 text-4xl mx-auto mb-2" />
+                            <div className="text-blue-700 text-sm font-medium">Documente oficiale</div>
+                            <div className="text-blue-600 text-xs mt-1">Pentru previzualizare</div>
+                          </div>
+                        </div>
+                      )}
                     </div>
                     
+                    {/* Content Section */}
                     <div className="p-6 flex flex-col flex-grow">
+                      {/* Tags and Meta Info */}
                       <div className="flex flex-wrap gap-2 mb-4">
-                        <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium inline-flex items-center">
+                        <span className="px-3 py-1 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-700 rounded-full text-xs font-semibold inline-flex items-center border border-blue-200">
                           <FaCalendarAlt className="mr-1" /> {news.date}
                         </span>
-                        <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium inline-flex items-center">
+                        <span className="px-3 py-1 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-700 rounded-full text-xs font-semibold inline-flex items-center border border-indigo-200">
                           <FaTag className="mr-1" /> {news.category.charAt(0).toUpperCase() + news.category.slice(1)}
+                        </span>
+                        <span className="px-3 py-1 bg-gradient-to-r from-green-100 to-emerald-100 text-green-700 rounded-full text-xs font-semibold inline-flex items-center border border-green-200">
+                          🏛️ Ministerial
                         </span>
                       </div>
                       
-                      <h3 className="text-xl font-bold mb-3 text-gray-700 line-clamp-2">
+                      {/* Title */}
+                      <h3 className="text-xl font-bold mb-3 text-gray-900 line-clamp-2 leading-tight">
                         {news.title}
                       </h3>
                       
-                      <p className="text-gray-600 mb-6 flex-grow line-clamp-3 text-sm">
+                      {/* Excerpt */}
+                      <p className="text-gray-600 mb-4 flex-grow line-clamp-3 leading-relaxed text-sm">
                         {news.excerpt}
                       </p>
                       
+                      {/* Documents Section */}
+                      {news.hasDocuments && news.documents && (
+                        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-4 mb-4 border border-blue-100">
+                          <h4 className="text-sm font-semibold text-gray-800 mb-3 flex items-center">
+                            <span className="mr-2">📑</span>
+                            Documente disponibile ({news.documents.length})
+                          </h4>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            {news.documents.map((doc, docIndex) => (
+                              <button
+                                key={doc.id}
+                                onClick={() => openPreview(doc.url, doc.title)}
+                                className="text-left text-xs bg-white hover:bg-blue-50 border border-blue-200 hover:border-blue-300 rounded-lg p-2 transition-all duration-200 flex items-center"
+                              >
+                                <span className="mr-2">
+                                  {doc.filename.endsWith('.pdf') ? '📄' : '📝'}
+                                </span>
+                                <span className="font-medium text-blue-700 truncate">
+                                  {doc.title}
+                                </span>
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                      
+                      {/* Footer with Author and Documents Info */}
                       <div className="flex items-center justify-between pt-4 border-t border-gray-100 mt-auto">
                         <div className="flex items-center space-x-3">
-                          <div className="w-10 h-10 rounded-full bg-gray-400 flex items-center justify-center text-white font-bold text-sm">
+                          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center text-white font-bold text-sm shadow-lg">
                             {news.author.charAt(0)}
                           </div>
                           <div>
-                            <div className="text-sm font-semibold text-gray-600">{news.author}</div>
-                            <div className="text-xs text-gray-500">Intern</div>
+                            <div className="text-sm font-semibold text-gray-800">{news.author}</div>
+                            <div className="text-xs text-gray-500">Sursă oficială</div>
                           </div>
                         </div>
                         
-                        <div className="text-sm text-gray-500">
-                          În curând...
+                        <div className="flex items-center text-blue-600 font-semibold text-sm">
+                          <span className="mr-2">📋 Vezi documente</span>
                         </div>
                       </div>
                     </div>
