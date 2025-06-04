@@ -8,7 +8,7 @@ class PDFDownloadTester:
     
     def __init__(self):
         # Get the backend URL from environment variable or use a default
-        self.base_url = os.environ.get('REACT_APP_BACKEND_URL', 'https://7b55f144-6c42-48c8-86a9-86665a93d246.preview.emergentagent.com')
+        self.base_url = os.environ.get('REACT_APP_BACKEND_URL', 'https://788df864-63c2-40c6-a323-e78062f3bccf.preview.emergentagent.com')
         print(f"Using base URL: {self.base_url}")
         self.tests_run = 0
         self.tests_passed = 0

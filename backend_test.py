@@ -85,7 +85,7 @@ class NewsImageTester:
 
 def main():
     # Get backend URL from environment
-    backend_url = "https://7b55f144-6c42-48c8-86a9-86665a93d246.preview.emergentagent.com"
+    backend_url = "https://788df864-63c2-40c6-a323-e78062f3bccf.preview.emergentagent.com"
     
     print(f"Testing backend at: {backend_url}")
     tester = NewsImageTester(backend_url)
