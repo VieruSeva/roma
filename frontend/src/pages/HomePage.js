@@ -106,7 +106,7 @@ const HomePage = () => {
         </div>
       </section>
       
-      <News />
+      <MainPageNews />
       <Contact />
     </motion.div>
   );
