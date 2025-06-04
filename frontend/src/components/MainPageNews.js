@@ -325,6 +325,48 @@ export const MainPageNews = () => {
           </Link>
         </div>
       </div>
+
+      {/* Document Preview Modal */}
+      {documentPreview && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg shadow-xl max-w-6xl w-full h-5/6 flex flex-col">
+            {/* Modal Header */}
+            <div className="flex items-center justify-between p-4 border-b bg-blue-50 rounded-t-lg">
+              <div className="flex items-center">
+                <FaFileAlt className="text-blue-500 mr-3 text-lg" />
+                <h3 className="text-lg font-semibold text-gray-800">{documentPreview.name}</h3>
+                <span className="ml-3 px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">
+                  Previzualizare document oficial
+                </span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <button
+                  onClick={() => window.open(documentPreview.url, '_blank')}
+                  className="px-3 py-1 bg-blue-600 text-white text-sm rounded hover:bg-blue-700 transition-colors duration-200 flex items-center"
+                >
+                  <FaExternalLinkAlt className="mr-1 text-xs" />
+                  Descarcă
+                </button>
+                <button
+                  onClick={closeDocumentPreview}
+                  className="text-gray-500 hover:text-gray-700 text-xl font-bold w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors duration-200"
+                >
+                  ×
+                </button>
+              </div>
+            </div>
+            
+            {/* Modal Content */}
+            <div className="flex-1 p-4">
+              <iframe
+                src={documentPreview.url}
+                className="w-full h-full border-0 rounded"
+                title={documentPreview.name}
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
