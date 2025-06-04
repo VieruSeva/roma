@@ -64,6 +64,9 @@ const HomePage = () => {
       {/* About section with isFullPage=true to show more content */}
       <About isFullPage={true} />
       
+      {/* Latest News Section */}
+      <LatestNewsSection />
+      
       {/* Additional content from AboutPage */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
