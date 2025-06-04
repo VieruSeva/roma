@@ -252,49 +252,41 @@ export const MainPageNews = () => {
                     </h4>
                     
                     <div className="grid grid-cols-1 gap-2">
-                      <a 
-                        href={`${BACKEND_URL}/api/download/minist1.pdf`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center p-2 bg-blue-50 rounded hover:bg-blue-100 transition-colors duration-200 text-sm"
+                      <button 
+                        onClick={() => window.open(`${BACKEND_URL}/api/download/minist1.pdf`, '_self')}
+                        className="flex items-center p-2 bg-blue-50 rounded hover:bg-blue-100 transition-colors duration-200 text-sm cursor-pointer"
                       >
                         <FaFileAlt className="text-blue-500 mr-2 text-xs" />
                         <span className="text-blue-700 font-medium">Răspuns oficial - Partea 1</span>
                         <FaExternalLinkAlt className="text-blue-400 text-xs ml-auto" />
-                      </a>
+                      </button>
 
-                      <a 
-                        href={`${BACKEND_URL}/api/download/minist2.pdf`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center p-2 bg-blue-50 rounded hover:bg-blue-100 transition-colors duration-200 text-sm"
+                      <button 
+                        onClick={() => window.open(`${BACKEND_URL}/api/download/minist2.pdf`, '_self')}
+                        className="flex items-center p-2 bg-blue-50 rounded hover:bg-blue-100 transition-colors duration-200 text-sm cursor-pointer"
                       >
                         <FaFileAlt className="text-blue-500 mr-2 text-xs" />
                         <span className="text-blue-700 font-medium">Răspuns oficial - Partea 2</span>
                         <FaExternalLinkAlt className="text-blue-400 text-xs ml-auto" />
-                      </a>
+                      </button>
 
-                      <a 
-                        href={`${BACKEND_URL}/api/download/minist3.docx`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center p-2 bg-green-50 rounded hover:bg-green-100 transition-colors duration-200 text-sm"
+                      <button 
+                        onClick={() => window.open(`${BACKEND_URL}/api/download/minist3.docx`, '_self')}
+                        className="flex items-center p-2 bg-green-50 rounded hover:bg-green-100 transition-colors duration-200 text-sm cursor-pointer"
                       >
                         <FaFileAlt className="text-green-500 mr-2 text-xs" />
                         <span className="text-green-700 font-medium">Anexă - Document</span>
                         <FaExternalLinkAlt className="text-green-400 text-xs ml-auto" />
-                      </a>
+                      </button>
 
-                      <a 
-                        href={`${BACKEND_URL}/api/download/minist4.pdf`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center p-2 bg-blue-50 rounded hover:bg-blue-100 transition-colors duration-200 text-sm"
+                      <button 
+                        onClick={() => window.open(`${BACKEND_URL}/api/download/minist4.pdf`, '_self')}
+                        className="flex items-center p-2 bg-blue-50 rounded hover:bg-blue-100 transition-colors duration-200 text-sm cursor-pointer"
                       >
                         <FaFileAlt className="text-blue-500 mr-2 text-xs" />
                         <span className="text-blue-700 font-medium">Răspuns oficial - Partea 3</span>
                         <FaExternalLinkAlt className="text-blue-400 text-xs ml-auto" />
-                      </a>
+                      </button>
                     </div>
                   </div>
                 )}
