@@ -155,15 +155,6 @@ const NewsPage = () => {
     }
   };
 
-  // Document preview functions
-  const openPreview = (url, title) => {
-    setPreviewModal({
-      isOpen: true,
-      url: url,
-      title: title
-    });
-  };
-
   const closePreview = () => {
     setPreviewModal({
       isOpen: false,
